@@ -1,0 +1,5 @@
+package com.projectefinal.app.sepositori;
+
+public interface RepositoriRol {
+
+}

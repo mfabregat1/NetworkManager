@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+enabledBuilders=org.eclipse.mylyn.internal.wikitext.ui.validation.ValidationProjectBuilder,org.eclipse.wst.jsdt.internal.core.builder.JavaBuilder,org.eclipse.wst.jsdt.web.core.internal.IncrementalBuilder,
+enabledValidators=org.eclipse.wst.html.core.internal.validation.HTMLValidator,org.eclipse.wst.jsdt.internal.core.validation.JavaScriptValidator,org.eclipse.wst.jsdt.web.core.internal.validation.JsValidator,org.eclipse.wst.json.core.internal.validation.eclipse.Validator,org.eclipse.wst.xsl.core.internal.validation.eclipse.Validator,
+patternsRemoved=*.asp,*.aspx,*.bas,*.bat,*.brs,*.c,*.cake,*.cc,*.cmd,*.coffee,*.cpp,*.cs,*.cson,*.css,*.csx,*.ctp,*.cxx,*.ejs,*.es6,*.fs,*.fsi,*.fsscript,*.fsx,*.h,*.hh,*.hpp,*.htm,*.html,*.hxx,*.inl,*.ino,*.ipp,*.js,*.jshtm,*.jsx,*.mdoc,*.mjs,*.pac,*.php,*.php4,*.php5,*.phtml,*.ps1,*.psd1,*.psm1,*.psrc,*.pssc,*.rhtml,*.shtml,*.swift,*.ts,*.tsx,*.vb,*.vbs,*.volt,
