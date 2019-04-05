@@ -1,5 +1,0 @@
-package com.projectefinal.app.sepositori;
-
-public interface RepositoriUsuari {
-
-}

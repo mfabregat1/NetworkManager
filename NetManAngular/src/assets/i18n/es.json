@@ -1,0 +1,15 @@
+{
+    "app.titol": "Network Manager",
+    "app.descripcio": "Algun exemplo de texto",
+
+    "app.login.inises": "Inicia Sessión",
+    
+    "app.label.correu": "Correo Electronico",
+    "app.label.contrassenya": "Contrasseña",
+    "app.label.entrar": "Entrar",
+    "app.label.idioma": "Idioma",
+    "app.label.catala": "Catalan",
+    "app.label.castella": "Castellano",
+    "app.label.angles": "Ingles",
+    "app.label.japones": "Japones"
+}

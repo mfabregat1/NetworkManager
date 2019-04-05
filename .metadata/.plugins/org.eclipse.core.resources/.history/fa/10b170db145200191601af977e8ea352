@@ -1,5 +1,0 @@
-package com.projectefinal.app.configuracio;
-
-public class WebMvcConfig {
-
-}
