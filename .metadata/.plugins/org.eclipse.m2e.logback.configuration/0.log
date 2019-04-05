@@ -1033,3 +1033,4 @@
 2019-04-05 12:12:11,904 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2019-04-05 12:12:11,906 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2019-04-05 12:12:11,915 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-04-05 12:12:11,915 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\Projecte Final\NetManWeb\src\test\resources
