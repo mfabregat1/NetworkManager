@@ -4,7 +4,8 @@ import com.projectefinal.app.model.Usuari;
 
 public interface ServeiUsuari {
 
-	public Usuari buscarUsuariPerCorreu(String correu);
-	public void guardarUsuari(Usuari usuari);
+	//public Usuari buscarUsuariPerCorreu(String correu);
+	//public void guardarUsuari(Usuari usuari);
+	public Usuari login(String correu, String contrassenya);
 	
 }

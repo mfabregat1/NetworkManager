@@ -3,7 +3,7 @@
     <div id="login-title">
       <h2 translate>app.login.inises</h2>
     </div>
-    <div #f="form">
+    <div>
       <div id="login-form">
         <div class="form-group">
           <label for="correu" translate>app.label.correu</label>
@@ -13,7 +13,7 @@
           <label for="contrassenya" translate>app.label.contrassenya</label>
           <input type="password" class="form-control" id="contrassenya" #contrassenya required>
         </div>
-        <button type="submit" (click)="iniciaSessio(correu.value,contrassenya.value)" [disabled]="!f.valid" translate>app.label.entrar</button>
+        <button type="submit" (click)="iniciaSessio(correu.value,contrassenya.value)" translate>app.label.entrar</button>
       </div>
     </div>
   </div>

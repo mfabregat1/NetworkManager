@@ -1,5 +1,8 @@
 package com.projectefinal.app.controlador;
 
+
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.projectefinal.app.model.Usuari;
 import com.projectefinal.app.servei.ServeiUsuari;
+import com.projectefinal.app.vo.UsuariLoginVo;
 
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -28,13 +32,16 @@ public class ControladorUsuari {
 	private ServeiUsuari serveiUsuari;
 	
 	@RequestMapping(value= {"/login"}, method=RequestMethod.GET)
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public void login() {
-		
+	public Usuari login(UsuariLoginVo usuariLoginVo) {
+		String correu = usuariLoginVo.getCorreu();
+		String contrassenya = usuariLoginVo.getContrassenya();
+		System.out.println(correu);
+		System.out.println(contrassenya);
+		Usuari usuariLogin = serveiUsuari.login(correu, contrassenya);
+		return usuariLogin;
 	}
 	// S'han de modificar totes les funcions
-	@RequestMapping(value= {"/registrar"}, method=RequestMethod.GET)
+	/*@RequestMapping(value= {"/registrar"}, method=RequestMethod.GET)
 	public ModelAndView registrar() {
 		ModelAndView model = new ModelAndView();
 		Usuari usuari = new Usuari();
@@ -81,6 +88,6 @@ public class ControladorUsuari {
 		model.setViewName("error/acces_denegat");
 		
 		return model;
-	}
+	}*/
 		
 }

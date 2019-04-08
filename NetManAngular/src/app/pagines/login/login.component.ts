@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
   iniciaSessio(correu, contrassenya) {
     if(correu!=null && contrassenya!=null){
       const body = {
-        j_correu: correu,
-        j_contrassenya: contrassenya
+        l_correu: correu,
+        l_contrassenya: contrassenya
       };
   
       return this.http.post(this.serverUrl + '/netman/login', body);
