@@ -3,6 +3,11 @@
     "app.descripcio": "Some example text",
 
     "app.login.inises": "Login",
+    "app.login.correu.invalid": "The email is invalid",
+    "app.login.correu.requerit": "The email is required",
+    "app.login.contrassenya.requerida": "The password is required",
+    "app.login.contrassenya.longitud.minima": "The password must have a minimum of 8 characters",
+    "app.login.contrassenya.longitud.maxima": "The password must have a maximum of 20 characters",
     
     "app.label.correu": "Email",
     "app.label.contrassenya": "Password",

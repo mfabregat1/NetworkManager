@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pagines/login/login.component';
 import { HeaderComponent } from './comu/header/header.component';
 
+// validador de formularis
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // imports ngx-translate i http loader
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
@@ -25,6 +28,8 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
         loader: {
             provide: TranslateLoader,

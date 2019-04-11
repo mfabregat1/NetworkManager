@@ -3,6 +3,8 @@ package com.projectefinal.app.controlador;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,26 +19,32 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Context;
 
 import com.projectefinal.app.model.Usuari;
 import com.projectefinal.app.servei.ServeiUsuari;
 import com.projectefinal.app.vo.UsuariLoginVo;
 
 
+
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
-@RequestMapping(value= {"/", "/netman"})
+@RequestMapping("/netman")
 public class ControladorUsuari {
+	
 	@Autowired
 	private ServeiUsuari serveiUsuari;
 	
 	@RequestMapping(value= {"/login"}, method=RequestMethod.GET)
-	public Usuari login(UsuariLoginVo usuariLoginVo) {
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Usuari login(@Context HttpServletRequest request,
+			@Context HttpServletResponse response, UsuariLoginVo usuariLoginVo) {
+		System.out.println("dghrg"+request);
 		String correu = usuariLoginVo.getCorreu();
 		String contrassenya = usuariLoginVo.getContrassenya();
-		System.out.println(correu);
-		System.out.println(contrassenya);
 		Usuari usuariLogin = serveiUsuari.login(correu, contrassenya);
 		return usuariLogin;
 	}

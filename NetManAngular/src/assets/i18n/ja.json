@@ -3,6 +3,11 @@
     "app.descripcio": "Tekisuto no rei",
 
     "app.login.inises": "Sesshon kaishi",
+    "app.login.correu.invalid": "Mēru ga mukōdesu",
+    "app.login.correu.requerit": "Mēru ga hitsuyōdesu",
+    "app.login.contrassenya.requerida": "Pasuwādo ga hitsuyōdesu",
+    "app.login.contrassenya.longitud.minima": "Pasuwādo wa 8 moji ijōdenakereba narimasen",
+    "app.login.contrassenya.longitud.maxima": "Pasuwādo wa saidai 20 mojidesu.",
     
     "app.label.correu": "Denshi mēru",
     "app.label.contrassenya": "Pasuwādo",

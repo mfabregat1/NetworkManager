@@ -4,17 +4,33 @@
       <h2 translate>app.login.inises</h2>
     </div>
     <div>
-      <div id="login-form">
+      <form id="login-form" [formGroup]="formLogin" (ngSubmit) = "iniciaSessio(formLogin.value)">
         <div class="form-group">
           <label for="correu" translate>app.label.correu</label>
-          <input type="email" class="form-control" id="correu" #correu required>
+          <input type="email" class="form-control" formControlName="correu" #correu email required>
+          <span class="help-block" *ngIf="formLogin.hasError('email', 'correu')" translate>
+            app.login.correu.invalid
+          </span>
+          <span class="help-block" *ngIf="formLogin.hasError('require', 'correu')" translate>
+            app.login.correu.requerit
+          </span>
         </div>
+
         <div class="form-group">
           <label for="contrassenya" translate>app.label.contrassenya</label>
-          <input type="password" class="form-control" id="contrassenya" #contrassenya required>
+          <input type="password" class="form-control" formControlName="contrassenya" #contrassenya required>
+          <span class="help-block" *ngIf="formLogin.hasError('require', 'contrassenya')" translate>
+            app.login.contrassenya.requerida
+          </span>
+          <span class="help-block" *ngIf="formLogin.hasError('minLength', 'contrassenya')" translate>
+            app.login.contrassenya.longitud.minima
+          </span>
+          <span class="help-block" *ngIf="formLogin.hasError('maxLength', 'contrassenya')" translate>
+            app.login.contrassenya.longitud.maxima
+          </span>
         </div>
-        <button type="submit" (click)="iniciaSessio(correu.value,contrassenya.value)" translate>app.label.entrar</button>
-      </div>
+        <input type="submit" class="btn btn-primary" value="{{'app.login.inises' | translate}}" [disabled] = "!formLogin.valid"> 
+      </form>
     </div>
   </div>
 </div>

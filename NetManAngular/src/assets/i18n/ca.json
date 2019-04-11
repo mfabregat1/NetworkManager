@@ -3,6 +3,11 @@
     "app.descripcio": "Algun exemple de text",
 
     "app.login.inises": "Inicia Sessió",
+    "app.login.correu.invalid": "El correu es invalid",
+    "app.login.correu.requerit": "El correu es necessari",
+    "app.login.contrassenya.requerida": "La contrassenya es necessaria",
+    "app.login.contrassenya.longitud.minima": "La contrassenya te que tindre un minim de 8 caracters",
+    "app.login.contrassenya.longitud.maxima": "La contrassenya te que tindre un maxim de 20 caracters",
     
     "app.label.correu": "Correu Electronic",
     "app.label.contrassenya": "Contrassenya",

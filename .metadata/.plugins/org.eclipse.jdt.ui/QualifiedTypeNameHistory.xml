@@ -43,4 +43,9 @@
 <fullyQualifiedTypeName name="org.springframework.security.core.Authentication"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CrossOrigin"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.projectefinal.app.vo.UsuariLoginVo"/>
+<fullyQualifiedTypeName name="javax.persistence.TypedQuery"/>
+<fullyQualifiedTypeName name="javax.ws.rs.POST"/>
 </qualifiedTypeNameHistroy>
