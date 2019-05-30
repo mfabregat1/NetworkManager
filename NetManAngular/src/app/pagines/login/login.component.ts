@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ComuService } from 'src/app/serveis/comu.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { NgForm } from '@angular/forms';
-import { UsuariVO } from 'src/app/vo/usuari-vo';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { LoginService } from 'src/app/serveis/login.service';
+import { UsuariAmbRolVO } from 'src/app/vo/usuari-vo';
+import { AppComponent } from 'src/app/app.component';
+import { Router } from "@angular/router";
+
 
 @Component({
   selector: 'app-login',
@@ -13,50 +15,89 @@ import { UsuariVO } from 'src/app/vo/usuari-vo';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  formLogin;
+  formLogin: FormGroup;
   correu="";
   contrassenya="";
-  serverUrl: string = 'http://localhost:8080';
+  infoUsuari: UsuariAmbRolVO;
+  mostrarAlertErrorUsuariInactiu: boolean = false;
+  mostrarAlertErrorUsuariIncorrecte: boolean = false;
+  esLogat: boolean = false;
 
   private subscription: Subscription = new Subscription();
 
-  constructor(private translate: TranslateService,
+  constructor(public _parent: AppComponent,
+              private translate: TranslateService,
               private comuService: ComuService,
-              private http: HttpClient) {
+              private loginServei: LoginService,
+              private bf: FormBuilder,
+              private router: Router) {
 
     this.subscription.add(this.comuService.getIdioma().subscribe(
       idioma => {
         this.translate.use(idioma);
       }
     ));
+    this.crearFormLogin();
+    
   }
 
   ngOnInit() {
-    this.formLogin = new FormGroup({
-      correu: new FormControl("", Validators.compose([
+    
+    this.esLogat = this.comuService.estaLogat();
+    if (this.esLogat==true){
+      this.router.navigateByUrl("router");
+    } else {
+      this.infoUsuari = this.comuService.getUserLoggedIn();
+    }
+  }
+
+  crearFormLogin(){
+    this.formLogin = this.bf.group({
+      correu: ["", Validators.compose([
         Validators.required,
         Validators.email
-      ])),
-      contrassenya: new FormControl("", Validators.compose([
+      ])],
+      contrassenya: ["", Validators.compose([
         Validators.minLength(8),
         Validators.maxLength(20),
         Validators.required
-      ]))
+      ])]
     })
   }
 
   iniciaSessio(camps) {
     this.correu = camps.correu;
     this.contrassenya = camps.contrassenya;
-    console.log(this.correu);
-    console.log(this.contrassenya);
     if(this.correu!=null && this.contrassenya!=null){
-      const body = {
-        l_correu: this.correu,
-        l_contrassenya: this.contrassenya
-      };
-
-      return this.http.post(this.serverUrl + '/netman/login', body);
+      this.loginServei.iniciaSessio(this.correu, this.contrassenya).subscribe(
+        data => {
+          if(!data){
+            console.log("USUARI INCORRECTE");
+            this.mostrarAlertErrorUsuariIncorrecte=true;
+          } else if(data!=null){
+            console.log("USUARI CORRECTE");
+            console.log("ARRAY USUARI");
+            this.infoUsuari = data;
+            if(this.infoUsuari.actiu==true){
+              //this.comuService.setInfoUsuari(this.infoUsuari);
+              this.comuService.setUserLoggedIn(this.infoUsuari);
+              this.comuService.quinRolTe(this.infoUsuari.rol);
+              this.infoUsuari = null;
+              this.router.navigateByUrl("router");
+            }
+            else{
+              this.mostrarAlertErrorUsuariInactiu=true;
+            }
+          } else{
+            console.log("USUARI INCORRECTE");
+            this.mostrarAlertErrorUsuariIncorrecte=true;
+          }          
+        }, error => {
+          console.log(error);
+          console.log("USUARI INCORRECTE");
+          this.mostrarAlertErrorUsuariIncorrecte=true;
+        }
+      );
     }else{
       console.log("Error, falta un dels dos camps");
     }

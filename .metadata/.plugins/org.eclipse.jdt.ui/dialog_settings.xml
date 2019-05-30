@@ -1,47 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="filter_imports;" key="filters_last_used"/>
+	<item key="filters_last_used" value="filter_imports;"/>
 	<section name="RefactoringWizard.preview">
-		<item value="600" key="width"/>
-		<item value="400" key="height"/>
+		<item key="width" value="600"/>
+		<item key="height" value="400"/>
 	</section>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
-		<item value="false" key="renameSubpackages"/>
-		<item value="false" key="updateQualifiedNames"/>
-		<item value="*" key="patterns"/>
-		<item value="false" key="updateTextualMatches"/>
+		<item key="renameSubpackages" value="true"/>
+		<item key="updateQualifiedNames" value="false"/>
+		<item key="patterns" value="*"/>
+		<item key="updateTextualMatches" value="false"/>
+		<item key="updateSimilarElements" value="false"/>
+		<item key="updateSimilarElementsMatchStrategy" value="1"/>
 	</section>
 	<section name="SourceActionDialog.methods">
-		<item value="false" key="SynchronizedModifier"/>
-		<item value="false" key="Comments"/>
-		<item value="1" key="VisibilityModifier"/>
-		<item value="false" key="FinalModifier"/>
+		<item key="SynchronizedModifier" value="false"/>
+		<item key="Comments" value="false"/>
+		<item key="VisibilityModifier" value="1"/>
+		<item key="FinalModifier" value="false"/>
 	</section>
 	<section name="NewClassWizardPage">
-		<item value="false" key="create_constructor"/>
-		<item value="true" key="create_unimplemented"/>
+		<item key="create_constructor" value="false"/>
+		<item key="create_unimplemented" value="true"/>
 	</section>
 	<section name="OptionalMessageDialog.hide.">
-		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
+		<item key="org.eclipse.jdt.ui.typecomment.deprecated" value="true"/>
 	</section>
 	<section name="quick_assist_proposal_size">
 	</section>
 	<section name="NewPackageWizardPage">
-		<item value="false" key="create_package_info_java"/>
+		<item key="create_package_info_java" value="false"/>
 	</section>
 	<section name="JavaSearchPage">
-		<item value="1" key="HISTORY_SIZE"/>
-		<item value="false" key="CASE_SENSITIVE"/>
-		<item value="11" key="INCLUDE_MASK"/>
+		<item key="HISTORY_SIZE" value="1"/>
+		<item key="CASE_SENSITIVE" value="false"/>
+		<item key="INCLUDE_MASK" value="11"/>
 		<section name="HISTORY0">
-			<item value="false" key="isCaseSensitive"/>
-			<item value="" key="javaElement"/>
-			<item value="0" key="scope"/>
-			<item value="11" key="includeMask"/>
-			<item value="Access" key="pattern"/>
-			<item value="2" key="limitTo"/>
-			<item value="0" key="matchLocations"/>
-			<item value="0" key="searchFor"/>
+			<item key="isCaseSensitive" value="false"/>
+			<item key="javaElement" value=""/>
+			<item key="scope" value="0"/>
+			<item key="includeMask" value="11"/>
+			<item key="pattern" value="Access"/>
+			<item key="limitTo" value="2"/>
+			<item key="matchLocations" value="0"/>
+			<item key="searchFor" value="0"/>
 			<list key="workingSets">
 			</list>
 		</section>
@@ -49,16 +51,32 @@
 	<section name="completion_proposal_size">
 	</section>
 	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
-		<item value="529" key="DIALOG_WIDTH"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
-		<item value="695" key="DIALOG_HEIGHT"/>
-		<item value="704" key="DIALOG_X_ORIGIN"/>
-		<item value="65" key="DIALOG_Y_ORIGIN"/>
+		<item key="DIALOG_WIDTH" value="529"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		<item key="DIALOG_HEIGHT" value="695"/>
+		<item key="DIALOG_X_ORIGIN" value="704"/>
+		<item key="DIALOG_Y_ORIGIN" value="51"/>
 	</section>
 	<section name="AddGetterSetterDialog">
-		<item value="false" key="SortOrdering"/>
-		<item value="false" key="RemoveFinal"/>
+		<item key="SortOrdering" value="false"/>
+		<item key="RemoveFinal" value="false"/>
 	</section>
 	<section name="JavaElementSearchActions">
+	</section>
+	<section name="SourceActionDialog.constructors">
+		<item key="VisibilityModifier" value="1"/>
+		<item key="FinalModifier" value="false"/>
+		<item key="SynchronizedModifier" value="false"/>
+		<item key="Comments" value="false"/>
+	</section>
+	<section name="GenerateConstructorUsingFieldsSelectionDialog">
+		<item key="OmitCallToSuper" value="false"/>
+	</section>
+	<section name="DialogBounds_GenerateConstructorUsingFieldsSelectionDialog">
+		<item key="DIALOG_X_ORIGIN" value="389"/>
+		<item key="DIALOG_Y_ORIGIN" value="53"/>
+		<item key="DIALOG_WIDTH" value="519"/>
+		<item key="DIALOG_HEIGHT" value="678"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 </section>

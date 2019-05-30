@@ -17,8 +17,23 @@ import javax.persistence.Table;
 @Table(name = "usuari")
 public class Usuari {
 	
+	public Usuari() {}
+	
+	public Usuari(int id, String correu, String username, String nom, String cognom, String contrassenya, boolean actiu, String rol) {
+		super();
+		this.id = id;
+		this.correu = correu;
+		this.username = username;
+		this.nom = nom;
+		this.cognom = cognom;
+		this.contrassenya = contrassenya;
+		this.actiu = actiu;
+		this.rol = rol;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
 	private int id;
 	
 	@Column(name = "correu")
@@ -37,11 +52,10 @@ public class Usuari {
 	private String contrassenya;
 	
 	@Column(name = "actiu")
-	private int actiu;
+	private boolean actiu;
 	
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="rol_usuari", joinColumns=@JoinColumn(name="id_usuari"), inverseJoinColumns=@JoinColumn(name="id_rol"))
-	private Set<Rol> rols;
+	@Column(name = "rol")
+	private String rol;
 
 	public int getId() {
 		return id;
@@ -91,19 +105,19 @@ public class Usuari {
 		this.contrassenya = contrassenya;
 	}
 
-	public int getActiu() {
+	public boolean getActiu() {
 		return actiu;
 	}
-
-	public void setActiu(int actiu) {
-		this.actiu = actiu;
-	}
 	
-	public Set<Rol> getRols() {
-		return rols;
+	public String getRol() {
+		return rol;
 	}
 
-	public void setRols(Set<Rol> rols) {
-		this.rols = rols;
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
+
+	public void setActiu(boolean actiu) {
+		this.actiu = actiu;
 	}
 }

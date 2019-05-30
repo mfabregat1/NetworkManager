@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.projectefinal.app.model">
+	<class name="Usuari" table="usuari">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" precision="5" scale="0" />
+		</id>
+		<property name="username" type="java.lang.String">
+            <column name="username" length="20" not-null="true" />
+        </property>
+		<property name="nom" type="java.lang.String">
+            <column name="nom" length="20" not-null="true" />
+        </property>
+		<property name="cognom" type="java.lang.String">
+            <column name="cognom" length="20" not-null="true" />
+        </property>
+		<property name="correu" type="java.lang.String">
+            <column name="correu" length="50" not-null="true" />
+        </property>
+		<property name="contrassenya" type="java.lang.String">
+            <column name="contrassenya" length="20" not-null="true" />
+        </property>
+		<property name="actiu" type="java.lang.Boolean">
+            <column name="actiu" not-null="true" />
+        </property>
+		<property name="rol" type="java.lang.String">
+            <column name="rol" length="20"/>
+        </property>
+	</class>
+</hibernate-mapping>

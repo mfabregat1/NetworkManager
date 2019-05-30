@@ -1,0 +1,96 @@
+<div class="container">
+  <div id="div-modificar">
+    <div id="modificar-title">
+      <h2>{{'app.crud.modificar.usuari' | translate}}</h2>
+    </div>
+    <div>
+      <form id="modificar-form" [formGroup]="formModificar" (ngSubmit) = "modificarUsuari(formModificar.value)">
+        <div class="form-group">
+          <label for="usuari" [translate]="'app.taula.username'"></label>
+          <input type="text" class="form-control" formControlName="usuari" value="{{UsuariAModificar.username}}">
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formModificar.controls['usuari'].touched && formModificar.controls['usuari'].errors?.required" translate>
+            app.modificar.username.requerit
+          </div>
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formModificar.controls['usuari'].errors?.minlength" translate>
+              app.modificar.username.longitud.minima
+            </div>
+            <div class="help-block alert alert-danger" role="alert" *ngIf="formModificar.controls['usuari'].errors?.maxlength" translate>
+              app.modificar.username.longitud.maxima
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label for="nom" [translate]="'app.taula.nom'"></label>
+          <input type="text" class="form-control" formControlName="nom" value="{{UsuariAModificar.nom}}">
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formModificar.controls['nom'].touched && formModificar.controls['nom'].errors?.required" translate>
+            app.modificar.nom.requerit
+          </div>
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formModificar.controls['usuari'].errors?.maxlength" translate>
+            app.modificar.username.longitud.maxima
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cognom" [translate]="'app.taula.cognom'"></label>
+          <input type="text" class="form-control" formControlName="cognom" value="{{UsuariAModificar.cognom}}">
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formModificar.controls['cognom'].touched && formModificar.controls['cognom'].errors?.required" translate>
+            app.modificar.cognom.requerit
+          </div>
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formModificar.controls['usuari'].errors?.maxlength" translate>
+            app.modificar.username.longitud.maxima
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="correu" [translate]="'app.taula.correu'"></label>
+          <input type="email" class="form-control" formControlName="correu" value="{{UsuariAModificar.correu}}">
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formModificar.controls['correu'].invalid" translate>
+            app.login.correu.invalid
+          </div>
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formModificar.controls['correu'].touched && formModificar.controls['correu'].errors?.required" translate>
+            app.login.correu.requerit
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="contrassenya" [translate]="'app.label.contrassenya'"></label>
+          <input type="password" class="form-control" formControlName="contrassenya" value="{{UsuariAModificar.contrassenya}}">
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formModificar.controls['contrassenya'].touched && formModificar.controls['contrassenya'].errors?.required" translate>
+            app.login.contrassenya.requerida
+          </div>
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formModificar.controls['contrassenya'].errors?.minlength" translate>
+            app.login.contrassenya.longitud.minima
+          </div>
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formModificar.controls['contrassenya'].errors?.maxlength" translate>
+            app.login.contrassenya.longitud.maxima
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="actiu" [translate]="'app.modificar.actiu'"></label>
+          <br/>
+          <label class="switch" id="actiu">
+            <input type="checkbox" class="success" formControlName="actiu" value="{{UsuariAModificar.actiu}}">
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="rol" [translate]="'app.taula.rol'"></label>
+          <br/>
+          <select form="modificar-form" name="rol" formControlName="rol">
+            <option value="ROL_AG" [translate]="'app.label.adminglob'"></option>
+            <option value="ROL_A" [translate]="'app.label.admin'"></option>
+            <option value="ROL_U" [translate]="'app.label.usuari'"></option>
+          </select>
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formModificar.controls['rol'].touched && formModificar.controls['rol'].errors?.required" translate>
+            app.modificar.rol.requerit
+          </div>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="{{'app.crud.modificar.usuari' | translate}}" [disabled] = "!formModificar.valid">
+        <a [routerLink]="['/gestionar-usuaris']" class="btn btn-danger" style="margin-left: 10px;"><span class="glyphicon glyphicon-ban-circle"></span></a>
+      </form>
+    </div>
+  </div>
+</div>

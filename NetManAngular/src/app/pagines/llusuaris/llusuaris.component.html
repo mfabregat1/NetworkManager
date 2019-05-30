@@ -1,0 +1,60 @@
+<script>
+  function makeTableScroll() {
+    // Constant retrieved from server-side via JSP
+    var maxRows = 8;
+
+    var table = document.getElementById('table');
+    var wrapper = table.parentNode;
+    var rowsInTable = table.rows.length;
+    try {
+        var border = getComputedStyle(table.rows[0].cells[0], '').getPropertyValue('border-top-width');
+        border = border.replace('px', '') * 1;
+    } catch (e) {
+        var border = table.rows[0].cells[0].currentStyle.borderWidth;
+        border = (border.replace('px', '') * 1) / 2;
+    }
+    var height = 0;
+    if (rowsInTable > maxRows) {
+        for (var i = 0; i < maxRows; i++) {
+            height += table.rows[i].clientHeight + border;
+        }
+        wrapper.style.height = height + "px";
+    }
+  }
+</script>
+<div class="container" onload="makeTableScroll();">
+  <div class="alert alert-danger" *ngIf="mostrarErrorEliminarAdminGlob"> 
+    <strong translate>app.label.error </strong><p translate> app.label.error.prohibit.eliminar.adminglob</p>
+  </div>
+  <div class="scrollingTable">
+    <table class="table" id="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col" translate>app.taula.username</th>
+          <th scope="col" translate>app.taula.nom</th>
+          <th scope="col" translate>app.taula.cognom</th>
+          <th scope="col" translate>app.taula.correu</th>
+          <th scope="col" translate>app.taula.rol</th>
+          <th scope="col" translate>app.taula.modificar</th>
+          <th scope="col" translate>app.taula.eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuari of arrayUsuaris">
+          <th scope="row"></th>
+          <td>{{usuari[1]}}</td>
+          <td>{{usuari[2]}}</td>
+          <td>{{usuari[3]}}</td>
+          <td>{{usuari[4]}}</td>
+          <td>{{usuari[7]}}</td>
+          <td scope="col" style="margin: 0 auto;"><a [routerLink]="['/modificar-usuari', usuari[0]]" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a></td>
+          <td scope="col" style="margin: 0 auto;"><button (click)="eliminarUsuariPerId(usuari[0])" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br/>
+  <a [routerLink]="['/crear-usuari']" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a>
+</div>

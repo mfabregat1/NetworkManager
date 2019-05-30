@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="alert alert-danger" *ngIf="mostrarAlertErrorUsuariInactiu"> 
+    <strong translate>app.label.error </strong><p translate> app.label.error.compte.bloquejat </p> <a href="mailTo:marcfabregat10@gmail.com">Marc Fabregat</a>
+  </div>
+  <div class="alert alert-danger" *ngIf="mostrarAlertErrorUsuariIncorrecte"> 
+    <strong translate>app.label.error </strong><p translate> app.label.error.login.incorrecte</p>
+  </div>
   <div id="div-login">
     <div id="login-title">
       <h2 translate>app.login.inises</h2>
@@ -7,27 +13,27 @@
       <form id="login-form" [formGroup]="formLogin" (ngSubmit) = "iniciaSessio(formLogin.value)">
         <div class="form-group">
           <label for="correu" translate>app.label.correu</label>
-          <input type="email" class="form-control" formControlName="correu" #correu email required>
-          <span class="help-block" *ngIf="formLogin.hasError('email', 'correu')" translate>
+          <input type="email" class="form-control" formControlName="correu">
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formLogin.controls['correu'].invalid" translate>
             app.login.correu.invalid
-          </span>
-          <span class="help-block" *ngIf="formLogin.hasError('require', 'correu')" translate>
+          </div>
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formLogin.controls['correu'].touched && formLogin.controls['correu'].errors?.required" translate>
             app.login.correu.requerit
-          </span>
+          </div>
         </div>
 
         <div class="form-group">
           <label for="contrassenya" translate>app.label.contrassenya</label>
-          <input type="password" class="form-control" formControlName="contrassenya" #contrassenya required>
-          <span class="help-block" *ngIf="formLogin.hasError('require', 'contrassenya')" translate>
+          <input type="password" class="form-control" formControlName="contrassenya">
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formLogin.controls['contrassenya'].touched && formLogin.controls['contrassenya'].errors?.required" translate>
             app.login.contrassenya.requerida
-          </span>
-          <span class="help-block" *ngIf="formLogin.hasError('minLength', 'contrassenya')" translate>
+          </div>
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formLogin.controls['contrassenya'].errors?.minlength" translate>
             app.login.contrassenya.longitud.minima
-          </span>
-          <span class="help-block" *ngIf="formLogin.hasError('maxLength', 'contrassenya')" translate>
+          </div>
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formLogin.controls['contrassenya'].errors?.maxlength" translate>
             app.login.contrassenya.longitud.maxima
-          </span>
+          </div>
         </div>
         <input type="submit" class="btn btn-primary" value="{{'app.login.inises' | translate}}" [disabled] = "!formLogin.valid"> 
       </form>

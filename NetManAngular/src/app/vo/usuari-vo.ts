@@ -1,12 +1,12 @@
-export class UsuariVO {
+export class UsuariAmbRolVO {
 
     public id: number;
-    public correu: string;
     public username: string;
     public nom: string;
     public cognom: string;
+    public correu: string;
     public contrassenya: string;
-    public actiu: number;
+    public actiu: boolean;
     public rol: string;
   
     constructor() {}

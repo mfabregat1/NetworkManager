@@ -5,3 +5,17 @@
     background-color: #33ccff;
     width: 70%;
 }
+
+.help-block{
+    max-width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 780px) {
+    .help-block {
+        max-width: 100%;
+        margin: 0 auto;
+        margin-top: 15px;
+    }
+  }

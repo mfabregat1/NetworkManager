@@ -1,0 +1,32 @@
+<div class="container">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cambiarIdentityRouter" translate>
+    app.modificar.identity
+  </button>
+  
+  <div class="modal fade" id="cambiarIdentityRouter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">{{'app.modificar.identity' | translate}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="modificar-identity-form" [formGroup]="formIdentity" (ngSubmit) = "modificarIdentity(formIdentity.value)">
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="identity">
+              <div class="help-block alert alert-danger" role="alert" *ngIf="formIdentity.controls['identity'].touched && formIdentity.controls['identity'].errors?.required" translate>
+                app.modificar.identity.requerit
+              </div>
+            </div>
+            <input type="submit" class="btn btn-primary" value="{{'app.router.modificar.config' | translate}}" [disabled] = "!formIdentity.valid">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" translate>app.label.tancar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

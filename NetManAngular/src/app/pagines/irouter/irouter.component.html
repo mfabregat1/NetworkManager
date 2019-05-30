@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="alert alert-danger" *ngIf="mostrarErrorConnexio"> 
+    <strong translate>app.label.error </strong><p translate> app.label.error.connexio.no.realitzada </p><p>{{resultatConnexioRouter}}</p>
+  </div>
+  <div id="div-conexrouter">
+    <div id="conexrouter-title">
+      <h2>{{'app.connexio.router' | translate}}</h2>
+    </div>
+    <div>
+      <form id="conexrouter-form" [formGroup]="formConexRouter" (ngSubmit) = "connexioARouter(formConexRouter.value)">
+        <div class="form-group">
+          <label for="ip" [translate]="'app.label.ip'"></label>
+          <input type="text" class="form-control" formControlName="ip">
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formConexRouter.controls['ip'].touched && formConexRouter.controls['ip'].errors?.required" translate>
+            app.connexio.ip.requerit
+          </div>
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formConexRouter.controls['ip'].errors?.minlength" translate>
+              app.connexio.ip.longitud.minima
+            </div>
+            <div class="help-block alert alert-danger" role="alert" *ngIf="formConexRouter.controls['ip'].errors?.maxlength" translate>
+              app.connexio.ip.longitud.maxima
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label for="usuari" [translate]="'app.taula.username'"></label>
+          <input type="text" class="form-control" formControlName="usuari" value="admin">
+          <div class="help-block alert alert-danger" role="alert" *ngIf="formConexRouter.controls['usuari'].touched && formConexRouter.controls['usuari'].errors?.required" translate>
+            app.modificar.username.requerit
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="contrassenya" [translate]="'app.label.contrassenya'"></label>
+          <input type="password" class="form-control" formControlName="contrassenya">
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="{{'app.connexio.connectarse' | translate}}" [disabled] = "!formConexRouter.valid">
+      </form>
+    </div>
+  </div>
+</div>
